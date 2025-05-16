@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Réserver une Table</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Choisissez une table</h1>
+    <div class="tables">
+      <div class="table-circle" data-table="1">1</div>
+      <div class="table-circle" data-table="2">2</div>
+      <div class="table-circle" data-table="3">3</div>
+      <div class="table-circle" data-table="4">4</div>
+      <div class="table-circle" data-table="5">5</div>
+    </div>
+    <a href="reservations.html" class="btn-view">Voir les réservations</a>
+  </div>
+
+  <!-- Pop-up modal -->
+  <div id="reservation-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Réserver la Table <span id="selected-table"></span></h2>
+      <label>Nom:</label>
+      <input type="text" id="name" required />
+      <label>Date:</label>
+      <input type="date" id="date" required />
+      <label>Heure:</label>
+      <select id="time"></select>
+      <button id="book-btn">Réserver</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
