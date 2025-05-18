@@ -1,23 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500;600&display=swap');
 
 
+.HomePage {
+  
+  padding: 20px;
+  
+}
 
 
+h2{
+font-family: 'Raleway';
+text-align: center;
+
+}
 .tables {
   display: flex;
   justify-content: center;
+  
+
+
   gap: 50px;
   flex-wrap: wrap;
-  margin-bottom: 30px;
+
   color: white;
-  height: 90vh;
+ 
+
+  
 }
 
 
 .table-circle {
 
-  margin-top: 75px;
-  width: 120px;
-  height: 120px;
+
+  width: 200px;
+  height: 200px;
   background-color:  #464848;
   
   border-radius: 50%;
@@ -31,4 +47,11 @@
 
 .table-circle:hover {
   background-color: #2a2b2b;
+}
+
+@media (max-width: 768px) {
+	.tables {
+
+    padding-top: 20px;
+	}
 }

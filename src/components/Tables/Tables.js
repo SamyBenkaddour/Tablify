@@ -19,7 +19,12 @@ const [selectedTable, setSelectedTable] = useState(null)
 
 	return (
 		<>
+			<div className='HomePage'>
+	<h2> Select a table to make a reservation</h2>
+	
 				<div className="tables">
+
+
 						{[1, 2, 3, 4, 5].map((id) => (
 					<div className='table-circle' key={id} onClick={() => handleTableClick(id)}>
 						 {id}
@@ -27,6 +32,9 @@ const [selectedTable, setSelectedTable] = useState(null)
 				))}
 				</div>
 				
+
+
+			</div>
                 <Modal isOpen={isModalOpen} onClose={closeModal} tableId={selectedTable} />
 		</>
 	)

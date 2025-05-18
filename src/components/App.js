@@ -1,20 +1,19 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+		
 
-import Banner from './Tables/Banner'
-import Tables from './Tables/Tables'
-import Modal from './Tables/Modal'
+import HomePage from './Tables/HomePage'
+import ReservationsPage from './Reservations/ReservationsPage'
 
 function App() {
 	
 
 	return (
-		<div>
-			<Banner/>   
-			<Tables/>
-			<Modal/>
-				
-			
-		
-		</div>
+		<Router>
+			<Routes>
+				<Route path="/" element={<HomePage />} />
+				<Route path="/reservations" element={<ReservationsPage />} />
+			</Routes>
+		</Router>
 	)
 }
 
