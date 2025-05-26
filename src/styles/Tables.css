@@ -1,18 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500;600&display=swap');
 
 
-.HomePage {
-  
-  padding: 20px;
-  
+
+
+/* Title */
+.title{
+	font-family: 'Raleway', sans-serif;
+  text-align: center;
+  color: #2a2b2b;
+  font-size: 2.5rem;
+  margin-bottom: 75px;
+ 
 }
 
 
-h2{
-font-family: 'Raleway';
-text-align: center;
 
-}
+
+
+/* Tables Section */
 .tables {
   display: flex;
   justify-content: center;

@@ -20,7 +20,7 @@ const [selectedTable, setSelectedTable] = useState(null)
 	return (
 		<>
 			<div className='HomePage'>
-	<h2> Select a table to make a reservation</h2>
+			<h2 className='title'> Select a table to make a reservation</h2>
 	
 				<div className="tables">
 

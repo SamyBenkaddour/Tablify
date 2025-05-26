@@ -1,11 +1,14 @@
 import Banner from '../common/Banner'
-import Reservations from './Reservations'
+import ReservationTable from './ReservationTable'
+
+
 
 function ReservationsPage() {
 	return (
 		<>
             <Banner isHomePage={false}/>
-			<Reservations />
+			
+			<ReservationTable />
 		</>
 	)
 }

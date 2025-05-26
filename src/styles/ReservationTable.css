@@ -1,0 +1,52 @@
+/* ReservationTable.css */
+
+.title
+ {
+  
+  margin-top: 40px;
+  
+}
+
+table {
+  width: 90%;
+  margin: 30px auto;
+  border-collapse: collapse;
+  
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+
+  
+}
+
+thead {
+  background-color: #504f4f;
+}
+
+th, td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid #464848;
+}
+
+th {
+  color: #ffffff;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+
+button {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #c0392b;
+}

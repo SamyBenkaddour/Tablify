@@ -10,9 +10,10 @@
 	align-items: center;
 	height: 10vh;
 	width: 100%;
-	
-	
-	
+	box-shadow: 0 4px 6px rgba(179, 178, 178, 0.1); 
+	background-color: #fff;
+	position: fixed;
+	top: 0;
 }
 
 
@@ -54,6 +55,9 @@
 	background-color: #464848;
 	
 }
+
+
+/* Responsive styles */
 @media (max-width: 768px) {
 	.btn-view {
 		margin: 0 auto; 
@@ -62,17 +66,16 @@
 }
 
 @media (max-width: 768px) {
-	.container {
-		flex-direction: column;
-		gap: 10px; /* optionnel : ajoute un petit espacement vertical */
-		height: 15vh;
-		align-items: center;
-		justify-content: center;
-		gap: 20px;
-
-		padding-top: 50px;
-	}
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: auto; /* facultatif */
+    padding: 10px 0; /* respire sans décaler */
+  }
 }
+
 
 @media (max-width: 768px) {
 	.logo {
