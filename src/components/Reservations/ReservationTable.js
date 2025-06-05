@@ -37,33 +37,41 @@ function ReservationTable() {
   };
 
   return (
-    <div>
-      <h2 className='title'> Liste des reservations</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Nom</th>
-            <th>Table</th>
-            <th>Date</th>
-            <th>Heure</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {reservations.map((res) => (
-            <tr key={res.id}>
-              <td>{res.name}</td>
-              <td>{res.table_id}</td>
-              <td>{res.date}</td>
-              <td>{res.time}</td>
-              <td>
-                <button onClick={() => handleDelete(res.id)}>Supprimer</button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+    <>
+      <div className='ResaPage'>
+          <h2 className='title-resa'> Liste des reservations</h2>
+          <table className='reservation-table'>
+            <thead>
+              <tr>
+                <th>Nom</th>
+                <th>Table</th>
+                <th>Date</th>
+                <th>Heure</th>
+                <th>phonenumber</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {reservations.map((res) => (
+                <tr key={res.id}>
+                  <td>{res.name}</td>
+                  <td>{res.table_id}</td>
+                  <td>{res.date}</td>
+                  <td>{res.time}</td>
+                  <td>{res.phonenumber}</td>
+                  
+                  <td>
+                    <button onClick={() => handleDelete(res.id)}>Supprimer</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+      </div>
+        {reservations.length === 0 && (
+          <p className='no-reservations'>Aucune réservation trouvée.</p>
+        )}
+    </>
   );
 }
 

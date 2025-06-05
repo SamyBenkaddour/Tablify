@@ -1,10 +1,14 @@
 /* ReservationTable.css */
 
-.title
+.title-resa
  {
-  
-  margin-top: 40px;
-  
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  color: #2a2b2b;
+  font-size: 2.5rem;
+  margin-bottom: 75px;
+   margin-top: 130px;
+
 }
 
 table {
@@ -24,7 +28,7 @@ thead {
 }
 
 th, td {
-  padding: 16px;
+  padding: 10px;
   text-align: left;
   border-bottom: 1px solid #464848;
 }
@@ -36,7 +40,12 @@ th {
   letter-spacing: 0.05em;
 }
 
-
+.no-reservations {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  margin-top: 50px;
+}
 button {
   background-color: #e74c3c;
   color: #fff;
@@ -49,4 +58,32 @@ button {
 
 button:hover {
   background-color: #c0392b;
+}
+
+@media (max-width: 768px) {
+	.title-resa {
+		font-size: 0.75rem;
+    
+    
+	}
+}
+
+@media (max-width: 768px) {
+
+    
+    .ResaPage{
+      padding-top: 25px;
+      
+      
+
+}
+		
+table {
+  width: 80%;
+  font-size: 0.6rem;
+ 
+  padding: 10px;
+}
+
+	
 }

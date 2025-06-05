@@ -7,6 +7,7 @@ function Modal({ isOpen, onClose, tableId }) {
   const [name, setName] = useState('');
   const [date, setDate] = useState('');
   const [time, setTime] = useState('18:00');
+  const [phonenumber, setphonenumber] = useState('');
 
   if (!isOpen) return null;
 
@@ -19,7 +20,8 @@ function Modal({ isOpen, onClose, tableId }) {
       .select('*')
       .eq('table_id', tableId)            // colonne table_id avec underscore et minuscules
       .eq('date', date)
-      .eq('time', time);
+      .eq('time', time)
+      .eq('phonenumber', phonenumber); // Vérification du numéro de téléphone
 
     if (error) {
       alert("Erreur lors de la vérification des réservations");
@@ -35,7 +37,7 @@ function Modal({ isOpen, onClose, tableId }) {
     // Insérer la réservation
     const { error: insertError } = await supabase
       .from('reservationsClient')
-      .insert([{ name, date, time, table_id: tableId }]);
+      .insert([{ name, date, time, table_id: tableId, phonenumber }]);
 
     if (insertError) {
       alert('Erreur lors de la réservation');
@@ -52,7 +54,7 @@ function Modal({ isOpen, onClose, tableId }) {
         <div className="modal-content">
           <h2>Réserver la Table <span id="selected-table">{tableId}</span></h2>
           <form onSubmit={handleSubmit}>
-            <label>Nom:</label>
+            <label>Nom:*</label>
             <input
               type="text"
               id="name"
@@ -60,7 +62,7 @@ function Modal({ isOpen, onClose, tableId }) {
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
-            <label>Date:</label>
+            <label>Date:*</label>
             <input
               type="date"
               id="date"
@@ -68,7 +70,7 @@ function Modal({ isOpen, onClose, tableId }) {
               value={date}
               onChange={(e) => setDate(e.target.value)}
             />
-            <label>Heure:</label>
+            <label>Heure:*</label>
             <select
               id="time"
               value={time}
@@ -78,6 +80,14 @@ function Modal({ isOpen, onClose, tableId }) {
                 <option key={t} value={t}>{t}</option>
               ))}
             </select>
+               <label>Phonenumber:*</label>
+            <input
+              type="text"
+              id="phonenumber"
+              required
+              value={phonenumber}
+              onChange={(e) => setphonenumber(e.target.value)}
+            />
             <button id="book-btn" type="submit">Réserver</button>
             <button type="button" onClick={onClose}>Annuler</button>
           </form>
