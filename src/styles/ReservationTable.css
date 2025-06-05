@@ -60,6 +60,13 @@ button:hover {
   background-color: #c0392b;
 }
 
+/* filters */
+
+
+
+
+
+/* Media queries*/
 @media (max-width: 768px) {
 	.title-resa {
 		font-size: 0.75rem;

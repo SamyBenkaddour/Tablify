@@ -71,15 +71,15 @@ function Modal({ isOpen, onClose, tableId }) {
               onChange={(e) => setDate(e.target.value)}
             />
             <label>Heure:*</label>
-            <select
-              id="time"
-              value={time}
-              onChange={(e) => setTime(e.target.value)}
-            >
-              {["18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00"].map((t) => (
-                <option key={t} value={t}>{t}</option>
-              ))}
-            </select>
+          <input
+            id="time"
+            type="time"
+            value={time}
+            onChange={(e) => setTime(e.target.value)}
+            min="18:00"
+            max="24:00"
+            // step="1800" 1800 secondes = 30 minutes
+          />
                <label>Phonenumber:*</label>
             <input
               type="text"

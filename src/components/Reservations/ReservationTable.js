@@ -1,9 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { supabase } from '../../data/supabaseClient';
 import '../../styles/ReservationTable.css'; 
+import '../../styles/Filter.css'
+
 
 function ReservationTable() {
   const [reservations, setReservations] = useState([]);
+  const [filterTable, setFilterTable] = useState('');
+  const [filterDate, setFilterDate] = useState('');
+  const [filterTime, setFilterTime] = useState('');
+   const [FilterPhonenumber, setFilterPhonenumber] = useState('');
+
+
+
+
 
   const fetchReservations = async () => {
     const { data, error } = await supabase
@@ -36,10 +46,61 @@ function ReservationTable() {
     }
   };
 
+   const resetFilters = () => {
+    setFilterTable('');
+    setFilterDate('');
+    setFilterTime('');
+  };
+
+   const filteredReservations = reservations.filter((res) => {
+    return (
+      (filterTable === '' || res.table_id.toString().includes(filterTable)) &&
+      (filterDate === '' || res.date === filterDate) &&
+      (filterTime === '' || res.time === filterTime) &&
+      (FilterPhonenumber === '' || res.phonenumber === FilterPhonenumber)
+    );
+  });
+
+  
   return (
     <>
       <div className='ResaPage'>
+
+
           <h2 className='title-resa'> Liste des reservations</h2>
+
+          <div className="filters">
+            <input
+            id='filter-table'
+              type="text"
+              placeholder="Filtrer par table"
+              value={filterTable}
+              onChange={(e) => setFilterTable(e.target.value)}
+            />
+            <input
+              id='filter-date'
+              type="date"
+              placeholder="Filtrer par date"
+              value={filterDate}
+              onChange={(e) => setFilterDate(e.target.value)}
+            />
+            <input
+              id='filter-time'
+              type="time"
+              placeholder="Filtrer par heure"
+              value={filterTime}
+              onChange={(e) => setFilterTime(e.target.value)}
+            />
+            <input
+              id='filter-phonenumber'
+              type="text"
+              placeholder="Phonenumber"
+              value= {FilterPhonenumber}
+              onChange={(e) => setFilterPhonenumber(e.target.value)}
+            />
+            <button className="reset-btn" onClick={resetFilters}>Réinitialiser</button>
+        </div>
+
           <table className='reservation-table'>
             <thead>
               <tr>
@@ -52,7 +113,7 @@ function ReservationTable() {
               </tr>
             </thead>
             <tbody>
-              {reservations.map((res) => (
+              {filteredReservations.map((res) => (
                 <tr key={res.id}>
                   <td>{res.name}</td>
                   <td>{res.table_id}</td>
