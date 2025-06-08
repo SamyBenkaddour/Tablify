@@ -7,27 +7,27 @@ function EditModal({ reservation, onClose, onUpdate }) {
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
   const [phonenumber, setPhonenumber] = useState('');
-  const [tableId, setTableId] = useState('');
 
-  // Mettre à jour les champs quand la réservation change
   useEffect(() => {
     if (reservation) {
-      setName(reservation.name);
-      setDate(reservation.date);
-      setTime(reservation.time);
-      setPhonenumber(reservation.phonenumber);
-      setTableId(reservation.table_id);
+      setName(reservation.name || '');
+      setDate(reservation.date || '');
+      setTime(reservation.time || '');
+      setPhonenumber(reservation.phonenumber || '');
     }
   }, [reservation]);
 
   const handleUpdate = async (e) => {
     e.preventDefault();
 
-    console.log('Données envoyées pour mise à jour :', { name, date, time, phonenumber, tableId });
+    if (!reservation || !reservation.id) {
+      alert("Erreur : réservation invalide.");
+      return;
+    }
 
     const { error } = await supabase
       .from('reservationsClient')
-      .update({ name, date, time, phonenumber, table_id: tableId })
+      .update({ name, date, time, phonenumber })
       .eq('id', reservation.id);
 
     if (error) {
@@ -58,17 +58,8 @@ function EditModal({ reservation, onClose, onUpdate }) {
             <label>Téléphone:</label>
             <input value={phonenumber} onChange={(e) => setPhonenumber(e.target.value)} required />
 
-            <label>Table :</label>
-            <select value={tableId} onChange={(e) => setTableId(e.target.value)} required>
-              {[1, 2, 3, 4, 5, 6, 7].map((n) => (
-                <option key={n} value={n}>Table {n}</option>
-              ))}
-            </select>
-
-            <div className="modal-buttons">
-              <button type="submit">Mettre à jour</button>
-              <button type="button" onClick={onClose}>Annuler</button>
-            </div>
+            <button type="submit">Mettre à jour</button>
+            <button type="button" onClick={onClose}>Annuler</button>
           </form>
         </div>
       </div>

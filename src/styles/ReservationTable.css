@@ -18,7 +18,7 @@ table {
   
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 0px rgba(0, 0, 0, 0.3);
 
   
 }
@@ -50,7 +50,7 @@ button {
   background-color: #e74c3c;
   color: #fff;
   border: none;
-  padding: 8px 12px;
+  padding: 5px 5px;
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -60,37 +60,53 @@ button:hover {
   background-color: #c0392b;
 }
 
-/* filters */
+/* action */
+.action {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
 
 
-
-
-
+.settings {
+  transform: scale(2);
+}
 /* Media queries*/
+
+
 @media (max-width: 768px) {
-	.title-resa {
+
+ .title-resa {
 		font-size: 0.75rem;
     
     
 	}
-}
 
-@media (max-width: 768px) {
-
-    
-    .ResaPage{
-      padding-top: 25px;
-      
-      
-
-}
-		
 table {
   width: 80%;
-  font-size: 0.6rem;
+  font-size: 0.5rem;
+  font-weight: 900;
  
-  padding: 10px;
+}
+
+.action {
+
+  justify-content: space-between;
+
+gap: 10px;
 }
 
 	
+}
+
+@media (max-width: 391px) {
+
+
+
+th, td {
+  padding: 11px;
+  text-align: left;
+  border-bottom: 1px solid #464848;
+}
 }

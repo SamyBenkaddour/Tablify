@@ -54,21 +54,7 @@
   background-color: #2a2b2b;
 }
 
-@media (max-width: 768px) {
-	.tables {
 
-    gap: 20px;
-	}
-}
-
-@media (max-width: 768px) {
-	.title-homepage {
-		font-size: 0.75rem;
-    
-
-		
-	}
-}
 
 
 
@@ -79,8 +65,19 @@
     
     .HomePage{
       padding-top: 25px;
+      padding: 25px 10px 0 10px;
    
 }
+		.title-homepage {
+		font-size: 0.75rem;
+    
+
 		
+	}
 	
+	.tables {
+
+    gap: 20px;
+	}
+
 }
